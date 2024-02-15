@@ -1,3 +1,7 @@
+import './styles/Board.css';
+
+
+
 const Board = () => {
   return (
     <>
