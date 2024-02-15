@@ -1,7 +1,10 @@
 import "./styles/Square.css";
+import { useState } from "react";
+const Square = () => {
 
-const Square = ({ value }) => {
-  const handleClick = () => {
+    const [value, setValue] = useState(null);
+    const handleClick = () => {
+      setValue("X");
     console.log("clicked");
   };
   return (

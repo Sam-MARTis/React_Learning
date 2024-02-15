@@ -1,4 +1,5 @@
 import Square from "./Square";
+import "./styles/Board.css";
 const Board = () => {
   return (
     <>

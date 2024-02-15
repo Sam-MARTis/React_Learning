@@ -1,11 +1,18 @@
 .square{
     /* display: flex; */
+    width: 100px;
+    position: relative;
+    height: 100px;
+    
     justify-content: center;
-    /* align-items: center; */
-    font-size: 24px;
-    font-weight: bold;
+    align-items: center;
+    font-size: larger;
+
     color:darkblue;
     background-color:bisque;
+
+    
+    margin: 1px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    /* transition: background-color 0.3s; */
 }
