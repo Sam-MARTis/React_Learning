@@ -3,10 +3,22 @@ import { useState } from "react";
 import "./styles/Board.css";
 const Board = () => {
   const [state, setState] = useState(Array(9).fill(null));
+  const [isX, setIsX] = useState(true);
+
   const handleClick = (i) => {
-    console.log("clicked ");
     const newState = state.slice();
-    newState[i] = "X";
+    if (isX) {
+      console.log("clicked ");
+      
+      newState[i] = "X";
+      
+    }
+    else {
+      console.log("clicked ");
+      newState[i] = "O";
+    }
+    setIsX(!isX);
+
     setState(newState);
   };
   return (
