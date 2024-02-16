@@ -7,6 +7,7 @@ const Board = () => {
 
   const handleClick = (i) => {
     const newState = state.slice();
+    if (newState[i]) return;
     if (isX) {
       console.log("clicked ");
       
