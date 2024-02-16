@@ -7,14 +7,14 @@ const Square = ({value, onClick}) => {
 //       setValue("X");
 //     console.log("clicked");
   //   };
-    const doHandleClick = () => {
-        if (value === null) {
-            onClick();
-        }
-    };
+    // const doHandleClick = () => {
+    //     if (value === null) {
+    //         onClick();
+    //     }
+    // };
   return (
     <>
-      <button className="square" onClick={doHandleClick}>
+      <button className="square" onClick={onClick}>
         {value}
       </button>
     </>
