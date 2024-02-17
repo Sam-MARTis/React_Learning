@@ -45,8 +45,20 @@ const Board = () => {
 
     setState(newState);
   };
+  let status;
+  const winner = calculateWinner(state);
+  if (winner) {
+    if (winner === "X") {
+      status = "Winner is X";
+    }
+    else{
+      status = "Winner is O";
+    }
+  }
+
   return (
     <>
+    <div className="status">{status}</div>
       <div className="board-row">
         <Square
           value={state[0]}
