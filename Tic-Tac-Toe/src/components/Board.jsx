@@ -34,11 +34,11 @@ const Board = () => {
     if (newState[i] || calculateWinner(newState)) return;
 
     if (isX) {
-      console.log("clicked ");
+      // console.log("clicked ");
 
       newState[i] = "X";
     } else {
-      console.log("clicked ");
+      // console.log("clicked ");
       newState[i] = "O";
     }
     setIsX(!isX);
