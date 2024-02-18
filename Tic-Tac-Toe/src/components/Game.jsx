@@ -11,24 +11,30 @@ const Game = () => {
     setIsX(!isX);
 
     setState(newState);
-    console.log("History is " + history);
-    console.log;
-    const myPromise = new Promise((resolve) => {
-        setTimeout(() => {
-          console.log("Setting history to " + [...history, newState]);
-        setHistory([...history, newState]);
-        resolve;
-      }, 300);
-    });
-    myPromise
-      .then(() => {
-        // console.log("History after " + history);
-      })
-      .then(() => {
-        // console.log("History after " + history);
-      });
+    // console.log("History is " + history);
 
+    setHistory([...history, newState]);
   };
+  const jumpTo = (index) => {
+    const newHistory = history.slice(0, index+1);
+    setHistory(newHistory);
+    setState(newHistory[newHistory.length -1]);
+  };
+  const moves = history.map((value, index) => {
+    if (index != 0) {
+      console.log("Value is " + value);
+      return (
+        <li key={index} onClick={() => { jumpTo(index) }}>
+          Move #{index}
+        </li>
+      );
+    } else
+      return (
+        <li key={index} onClick={() => { jumpTo(index) }}>
+          Go to Game start
+        </li>
+      );
+  });
 
   return (
     <>
@@ -37,7 +43,7 @@ const Game = () => {
           <Board isX={isX} state={state} onPlay={handlePlay} />
         </div>
         <div className="game-info">
-          <ol>{/*TODO*/}</ol>
+          <ul>{moves}</ul>
         </div>
       </div>
     </>
