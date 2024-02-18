@@ -1,10 +1,7 @@
 import Square from "./Square";
 import { useState } from "react";
 import "./styles/Board.css";
-const Board = () => {
-  const [state, setState] = useState(Array(9).fill(null));
-  const [isX, setIsX] = useState(true);
-
+const Board = ({ isX, state, onPlay }) => {
   function calculateWinner(squares) {
     const lines = [
       [0, 1, 2],
@@ -41,24 +38,24 @@ const Board = () => {
       // console.log("clicked ");
       newState[i] = "O";
     }
-    setIsX(!isX);
-
-    setState(newState);
+    console.log(newState);
+    onPlay(newState);
   };
   let status;
   const winner = calculateWinner(state);
   if (winner) {
     if (winner === "X") {
       status = "Winner is X";
-    }
-    else{
+    } else {
       status = "Winner is O";
     }
+  } else {
+    status = `Next player: ${isX ? "X" : "O"}`;
   }
 
   return (
     <>
-    <div className="status">{status}</div>
+      <div className="status">{status}</div>
       <div className="board-row">
         <Square
           value={state[0]}

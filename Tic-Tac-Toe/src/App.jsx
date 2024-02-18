@@ -1,12 +1,14 @@
-import Board from './components/Board'
+import { useState } from "react";
+import Game from "./components/Game";
 // import './App.css'
 function App() {
+  
 
   return (
     <>
-      <Board />
+      <Game/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
