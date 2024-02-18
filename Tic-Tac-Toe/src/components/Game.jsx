@@ -7,30 +7,38 @@ const Game = () => {
   const [state, setState] = useState(Array(9).fill(null));
 
   const handlePlay = (newState) => {
-    // console.log("Recieving newState " + newState);
     setIsX(!isX);
 
     setState(newState);
-    // console.log("History is " + history);
 
     setHistory([...history, newState]);
   };
   const jumpTo = (index) => {
-    const newHistory = history.slice(0, index+1);
+    const newHistory = history.slice(0, index + 1);
     setHistory(newHistory);
-    setState(newHistory[newHistory.length -1]);
+    setState(newHistory[newHistory.length - 1]);
   };
   const moves = history.map((value, index) => {
     if (index != 0) {
       console.log("Value is " + value);
       return (
-        <li key={index} onClick={() => { jumpTo(index) }}>
+        <li
+          key={index}
+          onClick={() => {
+            jumpTo(index);
+          }}
+        >
           Move #{index}
         </li>
       );
     } else
       return (
-        <li key={index} onClick={() => { jumpTo(index) }}>
+        <li
+          key={index}
+          onClick={() => {
+            jumpTo(index);
+          }}
+        >
           Go to Game start
         </li>
       );

@@ -1,5 +1,4 @@
 import Square from "./Square";
-import { useState } from "react";
 import "./styles/Board.css";
 const Board = ({ isX, state, onPlay }) => {
   function calculateWinner(squares) {
@@ -31,14 +30,10 @@ const Board = ({ isX, state, onPlay }) => {
     if (newState[i] || calculateWinner(newState)) return;
 
     if (isX) {
-      // console.log("clicked ");
-
       newState[i] = "X";
     } else {
-      // console.log("clicked ");
       newState[i] = "O";
     }
-    console.log(newState);
     onPlay(newState);
   };
   let status;
